@@ -2,10 +2,11 @@
 # This stage is to support development.
 FROM python:alpine AS base
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
 # Added to remove https://stackoverflow.com/questions/53744668/failed-building-wheel-for-regex-while-installing-pip-package
 RUN apt-get install python3-dev
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
 
 # Create the zip download file
 FROM node:alpine AS app-zip-creator
