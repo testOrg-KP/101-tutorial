@@ -3,7 +3,7 @@
 FROM python:alpine AS base
 WORKDIR /app
 # Added to remove https://stackoverflow.com/questions/53744668/failed-building-wheel-for-regex-while-installing-pip-package
-RUN apt-get install python3-dev
+# RUN apt-get install python3-dev
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
